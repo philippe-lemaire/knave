@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+Knave Bestiary
+{% endblock %}
+{% block content %}
+
+<h1>Monsters</h1>
+
+<br>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th>AC</th>
+
+    </tr>
+
+    {% for monster in monster_list %}
+    <tr>
+        <td>
+            <a href="{% url 'monsters:detail' monster.pk %}">{{ monster.name }}</a>
+        </td>
+        <td>{{ monster.level }}</td>
+        <td>{% if monster.ac %}{{ monster.ac }}{% endif %}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

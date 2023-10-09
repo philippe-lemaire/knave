@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}
+Knave Monsters- {{ monster.name }}
+{% endblock %}
+{% block content %}
+<h1>{{ monster.name }}</h1>
+
+
+
+<table class="table table-striped">
+    <tr>
+        <th scope="row">Armour class</th>
+        <td>{{ monster.ac }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Level</th>
+        <td>{{ monster.level }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Attacks</th>
+        <td>{{ monster.attacks }}</td>
+    </tr>
+
+    <tr>
+        <th scope="row">Movement</th>
+        <td>{{ monster.movement }}</td>
+    </tr>
+
+    <tr>
+        <th scope="row">Morale</th>
+        <td>{{ monster.morale }}</td>
+    </tr>
+
+
+    <tr>
+        <th scope="row">Number appearing</th>
+        <td>{{ monster.number_appearing }}</td>
+    </tr>
+
+</table>
+
+{% if monster.extra_info != 'None' %}
+
+<p>{{ monster.extra_info|safe }}</p>
+
+{% endif %}
+
+
+{% endblock %}
