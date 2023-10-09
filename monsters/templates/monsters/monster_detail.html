@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block title %}
-Knave Monsters- {{ monster.name }}
+Knave Monsters- {{ monster.name|title }}
 {% endblock %}
 {% block content %}
-<h1>{{ monster.name }}</h1>
+<h1>{{ monster.name|title }}</h1>
 
 
 
