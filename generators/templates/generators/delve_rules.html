@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}
+Knave - Delve Rules
+{% endblock %}
+{% block content %}
+<h1>Delving</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Turns</h2>
+
+<p>While dungeon delving, time is
+tracked in 10-minute segments called
+turns. Most actions (moving, searching,
+fighting, resting, etc.) take up one turn.</p>
+
+<h2>The Dungeon Hazard die</h2>
+<p>At the end of
+each turn, roll the Dungeon Hazard Die
+and apply the result.</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">D6</th>
+        <th scope="col">Dungeon Hazard Die Results</th>
+    </tr>
+    </thead>
+{% for key, value in delve_hazards_table.items %}
+{% if delve_hazard == key %}
+    <tr class="table-primary">
+{% else %}
+<tr>
+    {% endif %}
+        <td>{{ key }}</td>
+        <td>{{ value }}</td>
+    </tr>
+{% endfor %}
+</table>
+<p><em>Rolled Dungeon hazard is highlighted in the table</em></p>
+
+<h2>Crawling speed</h2>
+<p>120’ per turn. PCs
+spend most of this time standing still and
+listening, testing surfaces, and drawing
+maps. At this speed, the PCs automatically
+detect traps and map their environment.</p>
+    </div>
+    <div class="col">
+<h2>Walking speed</h2>
+<p>2,400’ per turn. PCs are
+surprised by all encounters and spring all
+traps, but may still map the dungeon.
+Walking speed is usually used when
+backtracking through areas the party has
+already explored.</p>
+
+<h2>Running speed</h2>
+<p>4,800’ per turn. PCs are
+surprised by all encounters, spring all
+traps, and cannot map their environment.
+Candles are blown out. Running speed is
+typically used as a last resort, usually when
+the party is fleeing for their lives.</p>
+
+<h2>Candles</h2>
+<p>Candles reveal general shapes
+within 20’, and details within 5’. They last
+for 8 hours, or a whole dungeon crawling expedition.
+10 candles fill a slot.</p>
+
+<h2>Lanterns</h2>
+<p>Lanterns are candles inside a
+glass and metal case. They can be constructed with shutters for more directed
+and controlled light. Like candles,
+they last a whole dungeon crawling
+expedition, but their case prevents them
+from being blown out. Candles and
+lanterns are great as emergency back-up
+torches when your torches run out.</p>
+
+<h2>Torches</h2>
+<p>Torches reveal general shapes
+within 40’, and details within 10’. The
+brightness of torches lets the party search
+areas faster (see below), but they take up a
+whole slot and burn out when a 3 is rolled
+on the on the Dungeon Hazard Die.</p>
+
+<h2>Darkness</h2>
+<p>In total darkness, checks
+involving movement or coordination
+have a -10 penalty. PCs will be surprised
+by all encounters, spring all traps, and
+cannot map their environment. It’s
+important to never be caught in total
+darkness, so bring plenty of light sources.</p>
+
+<h2>Searching</h2>
+<p>One turn spent searching a
+room reveals any non-obvious features (a
+statuette inside a drawer, a cracked tile,
+etc.) as well as any clues to secrets. In dim
+light like candlelight or lantern light, this
+takes two turns instead.</p>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from game_logic.roll_weather import roll_weather
 from game_logic.roll_travel_hazards import roll_travel_hazards
 from game_logic.tables.travel_hazards import travel_hazards_table
+from game_logic.tables.delve_hazards import delve_hazards_table
 from game_logic.tables.weather import weather_roll_table_dict
 from game_logic.characters import Character
+from game_logic.roll import roll
 from .forms import CharacterCreationForm
 
 # Create your views here.
@@ -76,4 +77,14 @@ class TravelRulesView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["travel_hazards_table"] = travel_hazards_table
         context["travel_hazard"] = roll_travel_hazards()
+        return context
+
+
+class DelveRulesView(TemplateView):
+    template_name = "generators/delve_rules.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["delve_hazards_table"] = delve_hazards_table
+        context["delve_hazard"] = roll("1d6")
         return context
