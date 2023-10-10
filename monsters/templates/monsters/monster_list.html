@@ -10,7 +10,7 @@ Knave Bestiary
 <div class="row">
 {% for monster in monster_list %}
 <div class="card m-2" style="width: 18rem;">
-  <!--<img class="card-img-top" src=".../100px180/" alt="Card image cap">-->
+  {% if monster.img_url %}<img class="card-img-top" src="{{ monster.img_url }}" alt="Card image cap">{% endif %}
   <div class="card-body">
     <h5 class="card-title"><a href="{% url 'monsters:detail' monster.pk %}">{{ monster.name|title }}</a></h5>
     <p class="card-text"><b>LVL: </b>{{ monster.level }}</p>
