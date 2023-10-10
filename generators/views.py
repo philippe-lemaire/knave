@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from game_logic.roll_weather import roll_weather
 from game_logic.roll_travel_hazards import roll_travel_hazards
 from game_logic.tables.travel_hazards import travel_hazards_table
 from game_logic.tables.weather import weather_roll_table_dict
 from game_logic.characters import Character
+from .forms import CharacterCreationForm
 
 # Create your views here.
 
@@ -19,6 +21,25 @@ def create_player_character(request):
         template_name="generators/character.html",
         context={"char": character, "attrs": attrs},
     )
+
+
+def create_custom_player_character(request):
+    attrs = ("STR", "DEX", "CON", "WIS", "INT", "CHA")
+    if request.method == "POST":
+        form = CharacterCreationForm(request.POST)
+        if form.is_valid():
+            character = Character(**form.cleaned_data)
+            request.session["saved_char"] = character.spit_attributes()
+
+            return render(
+                request,
+                template_name="generators/character.html",
+                context={"char": character, "attrs": attrs},
+            )
+    form = CharacterCreationForm()
+    template_name = "generators/create_custom_character.html"
+    context = {"form": form, "attrs": attrs}
+    return render(request, template_name, context)
 
 
 def level_up_character(request, attr):

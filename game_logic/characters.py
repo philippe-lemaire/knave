@@ -22,10 +22,13 @@ class Character:
         INT=0,
         WIS=0,
         CHA=0,
+        max_HP=0,
         gender=None,
         first_name=None,
         last_name=None,
         level=1,
+        career1=None,
+        career2=None,
     ):
         attributes = [int(STR), int(DEX), int(CON), int(INT), int(WIS), int(CHA)]
         if sum(attributes) == 0:
@@ -41,13 +44,16 @@ class Character:
             gender = random.choice(genders)
         self.gender = gender
         self.xp = 0
-        self.max_HP = 0
+        self.max_HP = max_HP
         self.set_name(first_name, last_name)
         self.update_secondary_stats()
-        self.careers = random.sample(sorted(CAREERS), 2)
+        if career1 is None and career2 is None:
+            self.careers = random.sample(sorted(CAREERS), 2)
+        else:
+            self.careers = [career1, career2]
         self.inventory = CAREERS.get(self.careers[0]) + CAREERS.get(self.careers[1])
         spells = random.sample(sorted(SPELLS), self.INT)
-        spells = [spell for spell in spells]
+        spells = [f"Spellbook: {spell}" for spell in spells]
         if spells:
             self.inventory.extend(spells)
 
@@ -96,8 +102,11 @@ class Character:
             self.INT,
             self.WIS,
             self.CHA,
+            self.max_HP,
             self.gender,
             self.first_name,
             self.last_name,
             self.level,
+            self.careers[0],
+            self.careers[1],
         )

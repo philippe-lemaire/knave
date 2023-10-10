@@ -4,7 +4,7 @@ Knave Character
 {% endblock %}
 
 {% block content %}
-<h1>A random character</h1>
+<h1>A Knave character</h1>
 
 <div class="card" style="width: 36rem;">
   <div class="card-body">
@@ -39,16 +39,23 @@ Knave Character
         </table>
     </p>
     <h6>Inventory</h6>
-    <p class="card-text">{{char.inventory|length}} / {{char.max_slots}} slots used</p>
+    <p class="card-text">{{char.inventory|length}} / {{char.max_slots}} slots used
         <ul>
             {% for item in char.inventory %}
             <li>{{ item }}</li>
             {% endfor %}
+        </ul></p>
+
+    <p class="card-text">You can add any of the following items that you can carry:
+        <ul>
+            <li>3d6×10 coins</li>
+            <li>2 rations</li>
+            <li>1.5m rope</li>
+            <li>2 torches</li>
+            <li>any armor pieces or weapons</li>
+            <li>a quiver of 20 arrows.</li>
         </ul>
-
-
-
-        <br>
+     </p>
         <h6>Level up</h6>
         {% if max_level_reached %}
         <p>Max level reached</p>

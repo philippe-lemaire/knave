@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Knave Character
+{% endblock %}
+
+{% block content %}
+<h1>Create your own character</h1>
+<br>
+
+
+ <form action="{% url 'generators:custom-player-character' %}" method="post">
+            {% csrf_token %}
+
+            {{ form|crispy }}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-warning btn-lg" type="submit">Créer</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+{% endblock %}

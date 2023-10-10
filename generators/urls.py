@@ -7,6 +7,11 @@ app_name = "generators"
 urlpatterns = [
     path("player-character", views.create_player_character, name="player-character"),
     path(
+        "create-custom-character",
+        views.create_custom_player_character,
+        name="custom-player-character",
+    ),
+    path(
         "player-character/level-up/<str:attr>",
         views.level_up_character,
         name="level-up",
