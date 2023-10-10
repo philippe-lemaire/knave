@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}
+Knave Character
+{% endblock %}
+
+{% block content %}
+<h1>A random character</h1>
+
+<div class="card" style="width: 36rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{char.first_name|title}} {{char.last_name|title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+        Formerly a {{char.careers.0}} and a {{char.careers.1}}.
+    </h6>
+    <p class="card-text"><b>Level: {{char.level}}</b></p>
+    <p class="card-text"><b>HP: {{char.max_HP}}</b></p>
+    <p class="card-text">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>STR</th>
+                    <th>DEX</th>
+                    <th>CON</th>
+                    <th>WIS</th>
+                    <th>INT</th>
+                    <th>CHA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ char.STR }}</td>
+                    <td>{{ char.DEX }}</td>
+                    <td>{{ char.CON }}</td>
+                    <td>{{ char.WIS }}</td>
+                    <td>{{ char.INT }}</td>
+                    <td>{{ char.CHA }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+    <h6>Inventory</h6>
+    <p class="card-text">{{char.inventory|length}} / {{char.max_slots}} slots used</p>
+        <ul>
+            {% for item in char.inventory %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+
+
+        <br>
+        <h6>Level up</h6>
+        {% if max_level_reached %}
+        <p>Max level reached</p>
+        {% else %}
+        {% for attr in attrs %}
+            <a href="{% url 'generators:level-up' attr %}" class="card-link">+1 {{attr}}</a>
+        {% endfor %}
+        {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock %}
