@@ -20,5 +20,5 @@ finds a sign that it is nearby (p. 10). The
 next time an encounter is rolled, the
 PCs meets that creature. Alternatively,
 reveal a clue to something hidden.""",
-    6: "free: No effect.",
+    6: "FREE: No effect.",
 }

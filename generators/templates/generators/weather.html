@@ -3,8 +3,82 @@
 Knave - Weather forecast
 {% endblock %}
 {% block content %}
-<h1>Weather Forecast</h1>
+<h1>Weather</h1>
 
-<p>{{weather}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Weather Rules</h2>
+<h3>Changing the weather</h3>
+<p>At the start of
+the game, roll on Weather table below or
+one that you’ve created to fit your setting
+(the Travel Shifts table is useful for this).
+Reroll whenever a 4 is rolled on the
+Travel Hazard Die. See the following
+suggestions for weather effects.
+</p>
+<h3>Rain</h3>
+<p>Everything gets soaked. Heavy rain
+reduces visibility, disorients, slows the
+party, drowns out sound, and creates
+mud. May cause flooding and landslides if
+it goes on for long enough.
+</p>
+<h3>Hail</h3>
+<p>Reduces visibility, disorients, slows
+movement, and drowns out sound.
+</p>
+<h3>Lightning</h3>
+<p>Spooks animals and ignites
+things. Generally does not strike PCs (3d6
+damage) unless they are asking for it.
+</p>
+<h3>Wind</h3>
+<p>Carries scents and makes ranged
+
+attacks difficult. Can reduce visibility if
+
+rain or dust is present. Strong winds slow down
+movement, drown out sound, and blow
+things over.
+</p>
+<h3>Fog</h3>
+<p>Reduces visibility and disorients.
+</p>
+        <h3>Snow</h3>
+        <p>Reduces visibility and slows movement. Heavy snow also disorients.  </p>
+<h3>Temperature</h3>
+<p>Hot and cold weather can increase fatigue damage to unprepared PCs. Freezing or extremely hot weather may cause damage every watch.  </p>
+
+
+    </div>
+    <div class="col">
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">2D6</th>
+        <th scope="col">Weather</th>
+    </tr>
+    </thead>
+{% for key, value in weather_table.items %}
+    {% if value == weather %}
+        <tr class="table-primary">
+    {% else %}
+        <tr>
+    {% endif %}
+        <td>{{ key }}</td>
+        <td>{{ value }}</td>
+    </tr>
+{% endfor %}
+</table>
+<p><em>Rolled weather is highlighted in the table</em></p>
+
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}

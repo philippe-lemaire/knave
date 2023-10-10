@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}
+Knave - Travel Rules
+{% endblock %}
+{% block content %}
+<h1>Travel Rules</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Watches</h2>
+
+<p>While traveling, days are
+divided into six four-hour watches: three
+for day, three for night. Most major
+actions (traveling, foraging, searching
+etc.) take one watch to complete.
+
+<h2>Travel speed</h2>
+<p>PCs can move one six-
+mile hex per watch, up to three times per
+day. Each watch they travel after the third
+deals 1 direct damage to each PC unless
+they succeed at a CON check. Speed is
+halved in darkness, difficult terrain, or
+severe weather and doubled when riding.</p>
+
+<h2>Navigation</h2>
+     <p>If the terrain or weather
+while traveling is disorienting, the GM
+may require a WIS check of the party’s
+leader (which the GM rolls in secret) to
+see if they move to a random adjacent hex.</p>
+
+<h2>Exploring</h2>
+<p>The party can spend a watch
+exploring the area of a six-mile hex to
+reveal any areas of interest (such as an
+overgrown ruin, hidden pool, etc.) that
+wouldn’t be noticed by passing through.</p>
+
+<h2>Secret features</h2>
+ <p>Secret features (such
+as buried treasure or a hidden door into a
+mountain) should have corresponding
+clues revealed by exploring the hex. They
+can only be found by the PCs interacting
+with the game world.</p>
+    </div>
+    <div class="col">
+      <h2>Foraging</h2>
+<p>Finding food takes a watch
+and requires passing a WIS check, with
+modifiers for weather, terrain, etc. On a
+success, a PC collects d6 rations.</p>
+
+<h2>The travel hazard die</h2>
+<p>At the end of
+each watch, roll the Travel Hazard Die
+and apply the result.</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">D6</th>
+        <th scope="col">Travel Hazard Die Results</th>
+    </tr>
+    </thead>
+{% for key, value in travel_hazards_table.items %}
+{% if travel_hazard == value %}
+    <tr class="table-primary">
+{% else %}
+<tr>
+    {% endif %}
+        <td>{{ key }}</td>
+        <td>{{ value }}</td>
+    </tr>
+{% endfor %}
+</table>
+<p><em>Rolled travel hazard is highlighted in the table</em></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
