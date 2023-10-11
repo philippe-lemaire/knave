@@ -8,6 +8,7 @@ from game_logic.tables.weather import weather_roll_table_dict
 from game_logic.characters import Character
 from game_logic.roll import roll
 from .forms import CharacterCreationForm
+from game_logic.spells import SPELLS
 
 # Create your views here.
 
@@ -87,4 +88,13 @@ class DelveRulesView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["delve_hazards_table"] = delve_hazards_table
         context["delve_hazard"] = roll("1d6")
+        return context
+
+
+class SpellListView(TemplateView):
+    template_name = "generators/spell_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["spelldict"] = SPELLS
         return context

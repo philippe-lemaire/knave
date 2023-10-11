@@ -19,4 +19,5 @@ urlpatterns = [
     path("weather-forecast", views.roll_weather_view, name="weather-forecast"),
     path("travel-rules", views.TravelRulesView.as_view(), name="travel-rules"),
     path("delve-rules", views.DelveRulesView.as_view(), name="delve-rules"),
+    path("spells", views.SpellListView.as_view(), name="spell-list"),
 ]

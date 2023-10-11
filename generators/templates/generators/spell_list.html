@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+Knave - Spell List
+{% endblock %}
+{% block content %}
+<h1>Spell List</h1>
+
+<table class="table table-stripped table-hover">
+{% for name, desc in spelldict.items %}
+<tr>
+    <td>{{name}}</td>
+    <td>{{desc}} </td>
+
+
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
