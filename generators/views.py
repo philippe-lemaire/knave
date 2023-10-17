@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from random import choice
 from game_logic.roll_weather import roll_weather
 from game_logic.roll_travel_hazards import roll_travel_hazards
 from game_logic.tables.travel_hazards import travel_hazards_table
@@ -9,6 +10,7 @@ from game_logic.characters import Character
 from game_logic.roll import roll
 from .forms import CharacterCreationForm
 from game_logic.spells import SPELLS
+from game_logic.tables._master_table import _master_table
 
 # Create your views here.
 
@@ -68,6 +70,20 @@ def roll_weather_view(request):
     weather = roll_weather()
     context = {"weather": weather, "weather_table": weather_roll_table_dict}
     template_name = "generators/weather.html"
+    return render(request, template_name, context)
+
+
+def get_table(request, table_name):
+    table = _master_table.get(table_name)
+    # turn table into a real dict
+    table = {n: desc for n, desc in enumerate(table, 1)}
+    random_choice = roll(f"1d{len(table)}")
+    template_name = "generators/tables.html"
+    context = {
+        "table": table,
+        "table_name": table_name.replace("_", " ").title(),
+        "random_choice": random_choice,
+    }
     return render(request, template_name, context)
 
 

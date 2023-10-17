@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}
+Knave - {{table}}
+{% endblock %}
+{% block content %}
+<h1>{{table_name}}</h1>
+
+<div class="table-responsive">
+<table class="table table-stripped table-hover">
+{% for name, desc in table.items %}
+
+{% if random_choice == name %}
+<tr class="table-primary">
+    {% else %}
+<tr>
+    {% endif %}
+    <td>{{name}}</td>
+    <td>{{desc}} </td>
+
+
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}
