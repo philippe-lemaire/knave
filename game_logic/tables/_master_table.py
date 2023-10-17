@@ -5,6 +5,10 @@ from .char_names import (
     surnames_last_part,
 )
 from .delusions import delusions
+from .assets import assets
+from .relationships import relationships
+from .mannerisms import mannerisms
+from .liabilities import liabilities
 from .effects import effects
 from .elements import elements
 from .forms import forms
@@ -48,6 +52,17 @@ from .city_themes import city_themes
 from .city_events import city_events
 from .street_details import street_details
 from .buildings import buildings
+from .food_traits import food_traits
+from .food import food
+from .factions import factions
+from .faction_traits import faction_traits
+from .missions import missions
+from .rewards import rewards
+from .archetypes import archetypes
+from .personalities import personalities
+from .npc_details import npc_details
+from .professions import professions
+from .goals import goals
 
 _master_table = {
     "male_first_names": male_first_names,
@@ -98,4 +113,19 @@ _master_table = {
     "city_events": city_events,
     "street_details": street_details,
     "buildings": buildings,
+    "food_traits": food_traits,
+    "food": food,
+    "factions": factions,
+    "faction_traits": faction_traits,
+    "missions": missions,
+    "rewards": rewards,
+    "archetypes": archetypes,
+    "personalities": personalities,
+    "npc_details": npc_details,
+    "professions": professions,
+    "goals": goals,
+    "assets": assets,
+    "liabilities": liabilities,
+    "relationships": relationships,
+    "mannerisms": mannerisms,
 }
