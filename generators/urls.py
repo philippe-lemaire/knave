@@ -22,4 +22,5 @@ urlpatterns = [
     path("spells", views.SpellListView.as_view(), name="spell-list"),
     path("tables", views.list_tables, name="list-tables"),
     path("tables/<str:table_name>", views.get_table, name="get-table"),
+    path("inn", views.roll_tavern_name, name="inn"),
 ]

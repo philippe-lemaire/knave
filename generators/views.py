@@ -11,6 +11,7 @@ from game_logic.roll import roll
 from .forms import CharacterCreationForm
 from game_logic.spells import SPELLS
 from game_logic.tables._master_table import _master_table
+from game_logic.tables.inn_names import inn_name_1, inn_name_2
 
 # Create your views here.
 
@@ -70,6 +71,13 @@ def roll_weather_view(request):
     weather = roll_weather()
     context = {"weather": weather, "weather_table": weather_roll_table_dict}
     template_name = "generators/weather.html"
+    return render(request, template_name, context)
+
+
+def roll_tavern_name(request):
+    template_name = "generators/inn.html"
+    inn_name = f"{choice(inn_name_1)} {choice(inn_name_2)}"
+    context = {"inn_name": inn_name}
     return render(request, template_name, context)
 
 

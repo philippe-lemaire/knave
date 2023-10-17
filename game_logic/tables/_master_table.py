@@ -27,6 +27,27 @@ from .mechanisms import mechanisms
 from .activities import activities
 from .disasters import disasters
 from .magic_schools import magic_schools
+from .domains import domains
+from .symbols import symbols
+from .potions import potions
+from .textures import textures
+from .tastes import tastes
+from .colors import colors
+from .ingredients import ingredients
+from .tools import tools
+from .miscellaneous_items import miscellaneous_items
+from .books import books
+from .clothing import clothing
+from .fabrics import fabrics
+from .decorations import decorations
+from .treasures import treasures
+from .materials import materials
+from .weapons import weapons
+from .item_traits import item_traits
+from .city_themes import city_themes
+from .city_events import city_events
+from .street_details import street_details
+from .buildings import buildings
 
 _master_table = {
     "male_first_names": male_first_names,
@@ -56,6 +77,25 @@ _master_table = {
     "activities": activities,
     "disasters": disasters,
     "magic_schools": magic_schools,
+    "domains": domains,
+    "symbols": symbols,
+    "potions": potions,
+    "textures": textures,
+    "tastes": tastes,
+    "colors": colors,
+    "ingredients": ingredients,
+    "tools": tools,
+    "miscellaneous_items": miscellaneous_items,
+    "books": books,
+    "clothing": clothing,
+    "fabrics": fabrics,
+    "decorations": decorations,
+    "treasures": treasures,
+    "materials": materials,
+    "weapons": weapons,
+    "item_traits": item_traits,
+    "city_themes": city_themes,
+    "city_events": city_events,
+    "street_details": street_details,
+    "buildings": buildings,
 }
-
-
