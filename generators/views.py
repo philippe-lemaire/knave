@@ -73,6 +73,13 @@ def roll_weather_view(request):
     return render(request, template_name, context)
 
 
+def list_tables(request):
+    tables = list(_master_table.keys())
+    context = {"tables_list": tables}
+    template_name = "generators/list_tables.html"
+    return render(request, template_name, context)
+
+
 def get_table(request, table_name):
     table = _master_table.get(table_name)
     # turn table into a real dict

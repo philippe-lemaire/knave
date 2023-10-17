@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+Knave - Tables List
+{% endblock %}
+{% block content %}
+<h1>Random Tables List</h1>
+<ul>
+{% for table in tables_list %}
+<li><a href="{% url 'generators:get-table' table %}">{{table}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

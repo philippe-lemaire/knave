@@ -20,5 +20,6 @@ urlpatterns = [
     path("travel-rules", views.TravelRulesView.as_view(), name="travel-rules"),
     path("delve-rules", views.DelveRulesView.as_view(), name="delve-rules"),
     path("spells", views.SpellListView.as_view(), name="spell-list"),
+    path("tables", views.list_tables, name="list_tables"),
     path("tables/<str:table_name>", views.get_table, name="get-table"),
 ]
