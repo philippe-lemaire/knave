@@ -100,6 +100,3 @@ wizard_names = [
     "Zarugaz",
     "Zilik",
 ]
-
-for n, name in enumerate(wizard_names, 1):
-    print(f"{n} {name}")

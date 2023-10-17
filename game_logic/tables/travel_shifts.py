@@ -101,6 +101,4 @@ travel_shifts = [
     "Wispy clouds",
 ]
 
-if __name__ == "__main__":
-    for i, s in enumerate(travel_shifts, 1):
-        print(f"{i} {s}")
+travel_shifts.sort()

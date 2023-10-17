@@ -100,3 +100,5 @@ place_traits = [
     "Wondrous",
     "Writhing",
 ]
+
+place_traits.sort()

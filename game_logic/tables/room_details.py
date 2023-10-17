@@ -100,3 +100,5 @@ room_details = [
     "Lantern",
     "Weapon (p. 43)",
 ]
+
+room_details.sort()

@@ -100,3 +100,5 @@ effects = [
     "Wearying",
     "Withering",
 ]
+
+effects.sort()

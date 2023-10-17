@@ -100,3 +100,5 @@ signs = [
     "Mechanism (p. 17) ",
     "Worshipers",
 ]
+
+signs.sort()

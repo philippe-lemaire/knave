@@ -100,3 +100,5 @@ delve_shifts = [
     "Hunt",
     "Worship",
 ]
+
+delve_shifts.sort()

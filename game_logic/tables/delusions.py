@@ -100,3 +100,5 @@ delusions = [
     "Infamous",
     "X-Ray Vision",
 ]
+
+delusions.sort()

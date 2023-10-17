@@ -100,3 +100,5 @@ qualities = [
     "Legendary",
     "Wretched",
 ]
+
+qualities.sort()

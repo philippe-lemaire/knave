@@ -82,9 +82,9 @@ def list_tables(request):
 
 def get_table(request, table_name):
     table = _master_table.get(table_name)
+    random_choice = choice(table)
     # turn table into a real dict
     table = {n: desc for n, desc in enumerate(table, 1)}
-    random_choice = roll(f"1d{len(table)}")
     template_name = "generators/tables.html"
     context = {
         "table": table,

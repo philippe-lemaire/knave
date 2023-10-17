@@ -100,3 +100,5 @@ mutations = [
     "Hands swell",
     "Wooly",
 ]
+
+mutations.sort()

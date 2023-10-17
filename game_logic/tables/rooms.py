@@ -100,3 +100,5 @@ rooms = [
     "Infirmary",
     "Workshop",
 ]
+
+rooms.sort()

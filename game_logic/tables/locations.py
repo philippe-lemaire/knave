@@ -100,3 +100,5 @@ locations = [
     "Lakebed",
     "Whirlpool",
 ]
+
+locations.sort()

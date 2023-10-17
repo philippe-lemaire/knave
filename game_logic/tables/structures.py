@@ -100,3 +100,5 @@ structures = [
     "Wizard tower",
     "Wooden bridge",
 ]
+
+structures.sort()

@@ -100,3 +100,5 @@ elements = [
     "Wine",
     "Wood",
 ]
+
+elements.sort()

@@ -100,3 +100,5 @@ room_themes = [
     "Mirrors",
     "Zealotry",
 ]
+
+room_themes.sort()

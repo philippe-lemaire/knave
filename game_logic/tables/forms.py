@@ -100,3 +100,5 @@ forms = [
     "Word",
     "Zone",
 ]
+
+forms.sort()
