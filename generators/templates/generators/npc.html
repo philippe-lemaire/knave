@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+Knave NPC
+{% endblock %}
+
+{% block content %}
+<h1>A Knave NPC</h1>
+<div class="card" style="width: 36rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{npc.first_name|title}} {{npc.last_name|title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+        {{npc.gender}} {{npc.profession}}.
+    </h6>
+    <p class="card-text">They have a <b>{{npc.personality|lower}}</b> personality and <b>{{npc.mannerism|lower}}</b> mannerisms.</p>
+    <p class="card-text">Their goal: <b>{{npc.goal|lower}}.</b></p>
+    <p class="card-text">To achieve this goal,
+        they have the asset <b>{{npc.asset|lower}}</b>
+        but suffers from the liability <b>{{npc.liability|lower}}</b>.</p>
+    <p class="card-text">One detail about {{npc.first_name}}: {{npc.detail}}</p>
+    <p class="card-text">One relationship: {{npc.relationship}}</p>
+    </div>
+</div>
+
+{% endblock content %}

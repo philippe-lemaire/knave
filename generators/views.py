@@ -12,6 +12,7 @@ from .forms import CharacterCreationForm
 from game_logic.spells import SPELLS
 from game_logic.tables._master_table import _master_table
 from game_logic.tables.inn_names import inn_name_1, inn_name_2
+from game_logic.npc import NPC
 
 # Create your views here.
 
@@ -78,6 +79,13 @@ def roll_tavern_name(request):
     template_name = "generators/inn.html"
     inn_name = f"{choice(inn_name_1)} {choice(inn_name_2)}"
     context = {"inn_name": inn_name}
+    return render(request, template_name, context)
+
+
+def roll_npc(request):
+    npc = NPC()
+    context = {"npc": npc, "Male": "Male"}
+    template_name = "generators/npc.html"
     return render(request, template_name, context)
 
 
