@@ -1,20 +1,23 @@
 {% extends "base.html" %}
 {% block title %}
-Knave - {{table}}
+Knave - {{table_name}} Table
 {% endblock %}
 {% block content %}
 <h1>{{table_name}}</h1>
+<h2>Random roll</h2>
+<p>You rolled "{{random_choice}}".</p>
 
+<h2>The whole {{table_name}} table </h2>
 <div class="table-responsive">
 <table class="table table-stripped table-hover">
-{% for name, desc in table.items %}
+{% for num, desc in table.items %}
 
-{% if random_choice == name %}
+{% if random_choice == desc %}
 <tr class="table-primary">
     {% else %}
 <tr>
     {% endif %}
-    <td>{{name}}</td>
+    <td>{{num}}</td>
     <td>{{desc}} </td>
 
 
