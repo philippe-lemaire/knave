@@ -13,6 +13,7 @@ from game_logic.spells import SPELLS
 from game_logic.tables._master_table import _master_table
 from game_logic.tables.inn_names import inn_name_1, inn_name_2
 from game_logic.npc import NPC
+from game_logic.random_monster import RandomMonster
 
 # Create your views here.
 
@@ -84,8 +85,18 @@ def roll_tavern_name(request):
 
 def roll_npc(request):
     npc = NPC()
-    context = {"npc": npc, "Male": "Male"}
+    context = {
+        "npc": npc,
+    }
     template_name = "generators/npc.html"
+    return render(request, template_name, context)
+
+
+def roll_random_monster(request):
+    monster = RandomMonster()
+    animal = RandomMonster("animal")
+    context = {"monster": monster, "animal": animal}
+    template_name = "generators/random_monster.html"
     return render(request, template_name, context)
 
 

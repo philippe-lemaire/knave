@@ -24,4 +24,5 @@ urlpatterns = [
     path("tables/<str:table_name>", views.get_table, name="get-table"),
     path("inn", views.roll_tavern_name, name="inn"),
     path("npc", views.roll_npc, name="npc"),
+    path("random-monster", views.roll_random_monster, name="random-monster"),
 ]
