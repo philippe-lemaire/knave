@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}
+Knave - Relic Magic Rules
+{% endblock %}
+{% block content %}
+<h1>Relic Magic</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Patrons</h2>
+      <p>
+Patrons are powerful magical
+beings (often incorporeal) who grant
+some of their power to PC through the
+use of relics. They might be petty gods,
+saints, nature spirits, outsiders, etc. GMs
+should treat patrons like NPCs, giving
+them goals (p. 57), personalities (p. 56),
+mannerisms (p. 59), etc. Each patron has
+one or two domains (p. 33) it is most
+concerned with, either positively or
+negatively.</p>
+
+<h2>Relics</h2>
+<p>
+Relics are magical items that are
+bound to the service of a particular
+patron, usually found in dungeons or at
+shrines. A relic might be a symbol of the
+patron, a weapon, an article of clothing,
+or anything else. Use the item tables (pp.
+39-43) for inspiration. A PC’s item can
+also be converted into a relic if the patron
+wishes it. Relics always take up at least
+one item slot.
+</p>
+
+<h2>Shrines</h2>
+    <p>
+Shrines are religious sites
+dedicated to particular patrons where PCs means completing another mission for
+may freely communicate with them,
+assuming they have the patron’s favor and
+at least one of their relics. Cities have
+shrines to every patron, towns have d6
+shrines , and villages usually only have a
+single shrine.
+    </p>
+
+    </div> <!-- class col-->
+    <div class="col">
+
+<h2>Blessings</h2>
+
+<p>Once a PC finds a relic and
+communicates with its patron at one of
+their shrines, the patron will give the PC a
+mission (p. 51). If the PC completes the
+mission and returns to the shrine, the
+patron will bestow an ongoing blessing on
+them related to the patron’s domains. It
+should be something minor but useful,
+such an aura or a minor spell that can be
+cast multiple times per day. It should be
+designed in collaboration with the player.
+The tables for magic (pp. 27-31), potions
+(p. 35), and powers (p. 65) can be helpful.
+This blessing continues as long as the PC
+possesses the relic and remains in the
+patron’s favor. PCs can possess any
+number of relics, but can only have a
+number of blessings active at one time
+equal to their CHA. Active blessings can
+be switched out each morning.</p>
+
+<h2>Favors and Disfavor</h2>
+
+<p>PCs that takes
+actions contrary to a patron’s goals may
+incur disfavor, which may result in the
+patron cutting off access to the blessing.
+
+Returning to the patron’s favor usually
+dedicated to particular patrons where PCs means completing another mission for
+may freely communicate with them,
+them or atoning for the offense.
+</p>
+<p>
+On the other hand, PCs who take pains to
+stay in a patron’s favor and align
+themselves with their goals may be
+rewarded with more powerful blessings,
+additional relics, or followers (p. 53).
+</p>
+
+
+    <h2>Rolled Patron</h2>
+
+    <p>Here is a randomly generated Patron using the tables in Knave 2nd Edition.</p>
+    <div class="row">
+    <div class="card m-2" style="width: 36rem;">
+    <div class="card-body">
+        <h5 class="card-title">Cult of {{patron_name|title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            Domains:
+            {{patron_domains.0}} & {{patron_domains.1}}. Symbol: {{symbol}}.
+            <br>Personality: {{patron_personality|lower}}. Mannerism: {{patron_mannerism|lower}}.
+            <br>Goal: {{patron_goal|lower}}. Power: {{patron_power}}
+        </h6>
+        <p class="card-text">Relic: {{relic}}</p>
+        <p class="card-text">A mission: {{mission}}.</p>
+        <p class="card-text">Potion: {{potion.name}}. Tastes like {{potion.taste}}.</p>
+    </div>
+    </div>
+</div>
+
+
+
+        </div> <!-- col-->
+
+    </div><!-- row -->
+
+</div> <!-- contaner-->
+
+
+
+
+{% endblock %}

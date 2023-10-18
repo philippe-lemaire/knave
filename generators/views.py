@@ -19,6 +19,8 @@ from game_logic.potion import Potion
 from game_logic.tables.potions import potions
 from game_logic.tables.food import food
 from game_logic.tables.food_traits import food_traits
+from game_logic.tables.domains import domains
+from game_logic.tables.symbols import symbols
 
 # Create your views here.
 
@@ -164,6 +166,24 @@ class AlchemyRulesView(TemplateView):
         potions_table = {i: p for i, p in enumerate(potions, 1)}
         context["potions_table"] = potions_table
         context["rolled_potion"] = Potion()
+        return context
+
+
+class RelicMagicRulesView(TemplateView):
+    template_name = "generators/relic_magic_rules.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["symbol"] = choice(symbols)
+        context["patron_name"] = choice(_master_table.get("wizard_names"))
+        context["patron_goal"] = choice(_master_table.get("goals"))
+        context["patron_personality"] = choice(_master_table.get("personalities"))
+        context["patron_mannerism"] = choice(_master_table.get("mannerisms"))
+        context["patron_domains"] = [choice(domains) for _ in range(2)]
+        context["relic"] = choice(_master_table.get("miscellaneous_items"))
+        context["mission"] = choice(_master_table.get("missions"))
+        context["potion"] = Potion()
+        context["patron_power"] = choice(_master_table.get("powers"))
         return context
 
 
