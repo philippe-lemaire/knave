@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}
+Knave - Alchemy Rules
+{% endblock %}
+{% block content %}
+<h1>Alchemy</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Harvesting</h2>
+      <p>
+Harvesting a monster part
+requires 10 minutes and the proper tools.
+The most useful organs are the ones that
+produce the monster's special abilities,
+such as a dragon's lung (fire breathing) or
+a dragon's scales (fireproofing). Magical
+plants can also be harvested, although
+they usually grow in dangerous or lost
+locations. Body parts or plants harvested
+take up at least one slot, due to the
+packaging and fluids they must be
+preserved in.</p>
+
+<h2>Brewing</h2>
+<p>
+Brewing a potion requires a
+fire, a cauldron, ingredients, and four
+hours (one watch) of time. The player
+describes the effect and duration of the
+potion they are trying to make, along with
+the ingredients to be used (usually
+monster parts, but in theory any rare
+substances with the right properties could
+be used). If the GM approves the attempt,
+the PC makes an INT check. The PC adds
++5 to the check if they spend an additional
+watch brewing. On a success, the potion is
+created. The parts are lost no matter the
+outcome. If the PC succeeds at the check
+by 10 or more, they have created a recipe
+for that potion and no longer need to
+make a brewing check to make it when
+using those exact ingredients.
+</p>
+
+<h2>Potion Effects</h2>
+    <p>
+Potions allow the
+drinker to produce a single significant
+magical effect. If the effect is ongoing (like
+invisibility) it lass for 10 minutes (one
+turn). Weak ongoing effects may last for
+an hour or even a day if they are very
+weak. A drop of a potion gives a clue as to
+its effects. If the players find or buy a
+potion you can either use one of the
+examples to the right or generate
+something using the magic tables.
+    </p>
+
+    <h2>Rolled Potion</h2>
+    <p>Here is a randomly generated potion using the tables in Knave 2nd Edition.</p>
+    <div class="row">
+    <div class="card m-2" style="width: 36rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{rolled_potion.name|title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            {{rolled_potion.texture}} texture and {{rolled_potion.taste|lower}} taste.
+        </h6>
+        <p class="card-text"><b>{{rolled_potion.color}}</b> color.</p>
+        <p class="card-text">To brew this, you’ll need to harvest the relevant ingredient (monster parts probably) and <b>{{rolled_potion.ingredient|lower}}.</b></p>
+        </div>
+    </div>
+</div>
+
+</div> <!-- class col-->
+        <div class="col">
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th scope="row" colspan="2">Potions</th>
+                    </tr>
+                </thead>
+
+                {% for k, desc in potions_table.items %}
+                    <tr>
+                        <td>{{ k }}</td>
+                        <td>{{ desc }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div> <!-- col-->
+
+    </div><!-- row -->
+
+</div> <!-- contaner-->
+
+
+
+
+{% endblock %}

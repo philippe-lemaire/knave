@@ -15,6 +15,8 @@ from game_logic.tables.inn_names import inn_name_1, inn_name_2
 from game_logic.npc import NPC
 from game_logic.random_monster import RandomMonster
 from game_logic.random_spell import get_random_spell
+from game_logic.potion import Potion
+from game_logic.tables.potions import potions
 
 # Create your views here.
 
@@ -136,6 +138,17 @@ class TravelRulesView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["travel_hazards_table"] = travel_hazards_table
         context["travel_hazard"] = roll_travel_hazards()
+        return context
+
+
+class AlchemyRulesView(TemplateView):
+    template_name = "generators/alchemy_rules.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        potions_table = {i: p for i, p in enumerate(potions, 1)}
+        context["potions_table"] = potions_table
+        context["rolled_potion"] = Potion()
         return context
 
 
