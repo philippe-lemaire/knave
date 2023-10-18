@@ -10,9 +10,14 @@ from .relationships import relationships
 from .mannerisms import mannerisms
 from .liabilities import liabilities
 from .effects import effects
+from .monster_traits import monster_traits
 from .elements import elements
+from .powers import powers
 from .forms import forms
 from .locations import locations
+from .monsters import monsters
+from .animals import animals
+from .organs import organs
 from .mutations import mutations
 from .place_traits import place_traits
 from .qualities import qualities
@@ -21,6 +26,8 @@ from .room_themes import room_themes
 from .signs import signs
 from .structures import structures
 from .wizard_names import wizard_names
+from .scents import scents
+from .sounds import sounds
 from .dungeons import dungeons
 from .delve_shifts import delve_shifts
 from .rooms import rooms
@@ -51,6 +58,8 @@ from .item_traits import item_traits
 from .city_themes import city_themes
 from .city_events import city_events
 from .street_details import street_details
+from .tactics import tactics
+from .weaknesses import weaknesses
 from .buildings import buildings
 from .food_traits import food_traits
 from .food import food
@@ -128,4 +137,13 @@ _master_table = {
     "liabilities": liabilities,
     "relationships": relationships,
     "mannerisms": mannerisms,
+    "monsters": monsters,
+    "animals": animals,
+    "organs": organs,
+    "monster_traits": monster_traits,
+    "powers": powers,
+    "scents": scents,
+    "sounds": sounds,
+    "tactics": tactics,
+    "weaknesses": weaknesses,
 }
