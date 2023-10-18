@@ -8,11 +8,12 @@ Knave Inn Generator
 
 <h1>{{number}} Random Inns</h1>
 <div class="row">
-{% for inn_name in inn_names%}
+{% for inn in inns%}
 
     <div class="card m-2" style="width: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">{{inn_name}}</h5>
+            <h5 class="card-title">The {{inn.name}}</h5>
+            <p class="card-text">On the menu today: {{inn.food}}</p>
         </div>
     </div>
 

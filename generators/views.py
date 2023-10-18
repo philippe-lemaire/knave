@@ -17,6 +17,8 @@ from game_logic.random_monster import RandomMonster
 from game_logic.random_spell import get_random_spell
 from game_logic.potion import Potion
 from game_logic.tables.potions import potions
+from game_logic.tables.food import food
+from game_logic.tables.food_traits import food_traits
 
 # Create your views here.
 
@@ -83,8 +85,13 @@ def roll_tavern_name(request):
     template_name = "generators/inn.html"
     number = 6
     inn_names = [f"{choice(inn_name_1)} {choice(inn_name_2)}" for _ in range(number)]
+    food_specialties = [f"{choice(food_traits)} {choice(food)}" for _ in range(number)]
+    inns = [
+        {"name": name, "food": food_specialty}
+        for name, food_specialty in zip(inn_names, food_specialties)
+    ]
     context = {
-        "inn_names": inn_names,
+        "inns": inns,
         "number": number,
     }
     return render(request, template_name, context)
