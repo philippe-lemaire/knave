@@ -14,6 +14,7 @@ from game_logic.tables._master_table import _master_table
 from game_logic.tables.inn_names import inn_name_1, inn_name_2
 from game_logic.npc import NPC
 from game_logic.random_monster import RandomMonster
+from game_logic.random_spell import get_random_spell
 
 # Create your views here.
 
@@ -80,6 +81,13 @@ def roll_tavern_name(request):
     template_name = "generators/inn.html"
     inn_name = f"{choice(inn_name_1)} {choice(inn_name_2)}"
     context = {"inn_name": inn_name}
+    return render(request, template_name, context)
+
+
+def roll_random_spell(request):
+    spell = get_random_spell()
+    template_name = "generators/random_spell.html"
+    context = {"spell": spell}
     return render(request, template_name, context)
 
 
