@@ -81,15 +81,23 @@ def roll_weather_view(request):
 
 def roll_tavern_name(request):
     template_name = "generators/inn.html"
-    inn_name = f"{choice(inn_name_1)} {choice(inn_name_2)}"
-    context = {"inn_name": inn_name}
+    number = 6
+    inn_names = [f"{choice(inn_name_1)} {choice(inn_name_2)}" for _ in range(number)]
+    context = {
+        "inn_names": inn_names,
+        "number": number,
+    }
     return render(request, template_name, context)
 
 
 def roll_random_spell(request):
-    spell = get_random_spell()
+    number = 8
+    spells = [get_random_spell() for _ in range(number)]
     template_name = "generators/random_spell.html"
-    context = {"spell": spell}
+    context = {
+        "spells": spells,
+        "number": number,
+    }
     return render(request, template_name, context)
 
 

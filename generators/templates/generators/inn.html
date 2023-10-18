@@ -6,7 +6,17 @@ Knave Inn Generator
 
 {% block content %}
 
-<h1>A random inn</h1>
-<h2>The {{inn_name}} </h2>
+<h1>{{number}} Random Inns</h1>
+<div class="row">
+{% for inn_name in inn_names%}
+
+    <div class="card m-2" style="width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{inn_name}}</h5>
+        </div>
+    </div>
+
+{% endfor %}
+</div>
 
 {% endblock %}
