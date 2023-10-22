@@ -204,4 +204,8 @@ class SpellListView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["spelldict"] = SPELLS
+        rolled_spell_name = choice(list(SPELLS.keys()))
+        rolled_spell_desc = SPELLS.get(rolled_spell_name)
+        context["rolled_spell_name"] = rolled_spell_name
+        context["rolled_spell_desc"] = rolled_spell_desc
         return context
