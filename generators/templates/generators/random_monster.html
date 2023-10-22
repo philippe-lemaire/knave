@@ -7,38 +7,39 @@
 <h1>2 Creatures</h1>
 
 <div class="row">
-    <div class="card m-2" style="width: 36rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{monster.species|title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">
-            Smells like {{monster.scent}} and sounds like {{monster.sound}}.
-        </h6>
-        <p class="card-text">They have a <b>{{monster.organ|lower}}</b>.</p>
-        <p class="card-text">Their power: <b>{{monster.power|lower}}.</b></p>
-        <p class="card-text">In combat,
-            they have the tactic <b>{{monster.tactic|lower}}</b>
-            but suffers from the weakness <b>{{monster.weakness|lower}}</b>.</p>
-        <p>One last detail about this {{monster.species}}: they are <b>{{monster.monster_trait|lower}}.</b>
+    <div class="card m-2" style="width: 24rem;">
+        <h5 class="card-header">Monster: {{monster.species|title}}</h5>
+        <div class="card-body">
+
+            <h6 class="card-subtitle mb-2 text-muted">
+                Smells like {{monster.scent}} and sounds like {{monster.sound}}.
+            </h6>
+            <p class="card-text">They have a <b>{{monster.organ|lower}}</b>.</p>
+            <p class="card-text">Their power: <b>{{monster.power|lower}}.</b></p>
+            <p class="card-text">In combat,
+                they have the tactic <b>{{monster.tactic|lower}}</b>
+                but suffers from the weakness <b>{{monster.weakness|lower}}</b>.</p>
+            <p>One last detail about this {{monster.species}}: they are <b>{{monster.monster_trait|lower}}.</b>
 
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="card m-2" style="width: 36rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{animal.species|title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">
-            Smells like {{animal.scent}} and sounds like {{animal.sound}}.
-        </h6>
-        <p class="card-text">They have a <b>{{animal.organ|lower}}</b>.</p>
-        <p class="card-text">Their power: <b>{{animal.power|lower}}.</b></p>
-        <p class="card-text">In combat,
-            they have the tactic <b>{{animal.tactic|lower}}</b>
-            but suffers from the weakness <b>{{animal.weakness|lower}}</b>.</p>
 
-         <p>One last detail about this {{animal.species}}: they are <b>{{animal.monster_trait|lower}}.</b>
+    <div class="card m-2" style="width: 24rem;">
+        <h5 class="card-header">Weird Animal: {{animal.species|title}}</h5>
+        <div class="card-body">
 
-        </div>
+            <h6 class="card-subtitle mb-2 text-muted">
+                Smells like {{animal.scent}} and sounds like {{animal.sound}}.
+            </h6>
+            <p class="card-text">They have a <b>{{animal.organ|lower}}</b>.</p>
+            <p class="card-text">Their power: <b>{{animal.power|lower}}.</b></p>
+            <p class="card-text">In combat,
+                they have the tactic <b>{{animal.tactic|lower}}</b>
+                but suffers from the weakness <b>{{animal.weakness|lower}}</b>.</p>
+
+            <p>One last detail about this {{animal.species}}: they are <b>{{animal.monster_trait|lower}}.</b>
+
+            </div>
     </div>
 </div>
 {% endblock content %}
