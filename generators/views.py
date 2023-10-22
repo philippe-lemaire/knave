@@ -129,6 +129,7 @@ def roll_random_monster(request):
 
 def list_tables(request):
     tables = list(_master_table.keys())
+    tables.sort()
     context = {"tables_list": tables}
     template_name = "generators/list_tables.html"
     return render(request, template_name, context)
