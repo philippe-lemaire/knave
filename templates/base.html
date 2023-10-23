@@ -27,24 +27,23 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Player characters
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                    role="button" aria-haspopup="true" aria-expanded="false">Characters
                     </a>
                     <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{% url 'generators:player-character' %}">Get a rando</a>
-                    <a class="dropdown-item" href="{% url 'generators:custom-player-character' %}">Generate a custom character</a>
+                    <a class="dropdown-item" href="{% url 'generators:player-character' %}">Random PC</a>
+                    <a class="dropdown-item" href="{% url 'generators:custom-player-character' %}">Non random PC</a>
+                    <a class="nav-link" href="{% url 'generators:npc' %}">Random NPC</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                 <a class="nav-link" href="{% url 'generators:npc' %}">Roll a NPC</a>
-
-                </li>
-                <li class="nav-item">
-                 <a class="nav-link" href="{% url 'generators:random-monster' %}">Roll 2 creatures</a>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'monsters:monster_list' %}">Monster Stats</a>
-                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                    role="button" aria-haspopup="true" aria-expanded="false">Creatures
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'generators:random-monster' %}">Roll 2 creatures</a>
+                        <a class="dropdown-item" href="{% url 'monsters:monster_list' %}">Monster List</a>
+                    </div>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Magic and Alchemy
                     </a>
