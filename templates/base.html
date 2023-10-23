@@ -6,7 +6,10 @@
     <!-- boostrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>{% block title %}Knave 2nd Edition Generators{% endblock %}</title>
+    <!-- local CSS -->
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'generators/styles.css' %}">
+        <title>{% block title %}Knave 2nd Edition Generators{% endblock %}</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👺</text></svg>">
 
@@ -89,14 +92,7 @@
 
     </div>
 
-    {% block footer %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
-        <div class="container-fluid">
-            <span class="navbar-text">Knave is a game by Ben Milton of Questing Beast fame.</span>
-        </div>
-    </nav>
-    {% endblock %}
     <!-- Jquery and Popper-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
