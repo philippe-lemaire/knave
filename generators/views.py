@@ -198,6 +198,19 @@ class DelveRulesView(TemplateView):
         return context
 
 
+class EncountersRulesView(TemplateView):
+    template_name = "generators/encounters_rules.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        activities = _master_table.get("activities")
+        context["activities"] = zip(activities[:50], activities[50:])
+        context["rolled_activity"] = choice(activities)
+        context["reactions_table"] = _master_table.get("reactions")
+        context["rolled_reaction"] = roll("2d6")
+        return context
+
+
 class SpellListView(TemplateView):
     template_name = "generators/spell_list.html"
 

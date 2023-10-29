@@ -30,6 +30,7 @@ urlpatterns = [
     path("tables/<str:table_name>", views.get_table, name="get-table"),
     path("inn", views.roll_tavern_name, name="inn"),
     path("npc", views.roll_npc, name="npc"),
+    path("encounters", views.EncountersRulesView.as_view(), name="encounters"),
     path("random-monster", views.roll_random_monster, name="random-monster"),
     path("random-spell", views.roll_random_spell, name="random-spell"),
 ]

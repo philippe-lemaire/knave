@@ -41,9 +41,10 @@
                 </li>
                  <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-                    role="button" aria-haspopup="true" aria-expanded="false">Creatures
+                    role="button" aria-haspopup="true" aria-expanded="false">Encounters
                     </a>
                     <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'generators:encounters' %}">Encounters rules</a>
                         <a class="dropdown-item" href="{% url 'generators:random-monster' %}">Roll 2 creatures</a>
                         <a class="dropdown-item" href="{% url 'monsters:monster_list' %}">Monster List</a>
                     </div>

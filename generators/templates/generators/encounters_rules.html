@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}
+Knave - Encounter Rules
+{% endblock %}
+{% block content %}
+<h1>Encounters</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+
+<p>Use the following rules when the PCs
+come across a random encounter.</p>
+
+<h2>Distance from party</h2>
+<p>
+In confined
+environments with limited visibility like
+dungeons, encounters appear 2d6 × 3m
+from the PCs when their initial distance is 8
+unclear. In the wilderness, large caverns,
+or other wide-open spaces, they appear
+4d6 × 9m away.
+</p>
+
+<h2>Surprise</h2>
+<p>
+If an encounter occurs within
+25m of the party, the closest PC should
+make a WIS check against the closest
+encountered creature. If one side wins by
+5 or more, they have surprised the other
+side. The surprising side will act first in
+combat and gains a +5 bonus on all
+combat checks during the first round.
+</p>
+
+
+<h2>Activity</h2>
+<p>
+The current activity of the
+encountered creatures depends on the
+creature type, environment, etc., but the
+most important thing is to have them
+doing more than just waiting for the PCs
+to arrive. It should feel like they have a life
+outside of the adventure. Use the table to
+the right as inspiration or roll on it,
+ignoring results that don’t make sense.
+</p>
+
+<h2>Reaction</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">2D6</th>
+        <th scope="col">NPC Reaction</th>
+    </tr>
+    </thead>
+{% for key, value in reactions_table.items %}
+{% if rolled_reaction == key %}
+    <tr class="table-primary">
+{% else %}
+<tr>
+    {% endif %}
+        <td>{{ key }}</td>
+        <td>{{ value }}</td>
+    </tr>
+{% endfor %}
+</table>
+<p><em>Rolled Reaction is highlighted in the table</em></p>
+
+    </div>
+    <div class="col">
+
+        <table class="table">
+        <thead>
+            <tr>
+                <th colspan="4">Activities</th>
+            </tr>
+            {% for act1, act2 in activities %}
+                 {% if act1 == rolled_activity %}
+                <td class="table-primary">{{forloop.counter}}</td>
+                <td class="table-primary">{{act1}}</td>
+                {% else %}
+                <td>{{forloop.counter}}</td>
+                <td>{{act1}}</td>
+                {% endif %}
+                {% if act2 == rolled_activity %}
+                <td class="table-primary">{{forloop.counter|add:"50"}}</td>
+                <td class="table-primary">{{act2}}</td>
+                {% else %}
+                <td>{{forloop.counter|add:"50"}}</td>
+                <td>{{act2}}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </thead>
+        </table>
+        <span><em>Rolled activity is highlighted in the table.</em></span>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

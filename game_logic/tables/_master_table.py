@@ -72,6 +72,7 @@ from .personalities import personalities
 from .npc_details import npc_details
 from .professions import professions
 from .goals import goals
+from .reactions import reactions
 
 _master_table = {
     "male_first_names": male_first_names,
@@ -136,6 +137,7 @@ _master_table = {
     "assets": assets,
     "liabilities": liabilities,
     "relationships": relationships,
+    "reactions": reactions,
     "mannerisms": mannerisms,
     "monsters": monsters,
     "animals": animals,
