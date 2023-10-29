@@ -10,19 +10,15 @@ Knave - {{table_name}} Table
 <h2 class="mt-4">The whole {{table_name}} table </h2>
 <div class="table-responsive">
 <table class="table table-stripped table-hover">
-{% for num, desc in table.items %}
 
-{% if random_choice == desc %}
-<tr class="table-primary">
-    {% else %}
-<tr>
-    {% endif %}
-    <td>{{num}}</td>
-    <td>{{desc}} </td>
-
-
-</tr>
-{% endfor %}
+    {% for item1, item2 in table %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{item1}}</td>
+        <td>{{forloop.counter|add:"50"}}</td>
+        <td>{{item2}}</td>
+    </tr>
+    {% endfor %}
 </table>
 </div>
 {% endblock %}
