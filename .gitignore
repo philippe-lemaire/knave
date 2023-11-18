@@ -67,6 +67,5 @@ coverage
 # notebooks
 
 notebooks/
-static/
 .vscode/settings.json
 debug.log
