@@ -6,44 +6,37 @@ Knave Monsters- {{ monster.name|title }}
 <h1>{{ monster.name|title }}</h1>
 
 
+  {% if monster.img_url %}<img class="card-img-top" src="{{ monster.img_url }}" alt="Card image cap">{% endif %}
+  <div class="card-body">
+    <table class="table">
+        <tr>
+            <th scope="col">LVL</th>
+            <th scope="col">HP</th>
+            <th scope="col">AC</th>
+        </tr>
+        <tr>
+    <td>{{ monster.level }}</td>
+    <td>{{ monster.hp }}</td>
+    <td>{{ monster.ac }}</td>
+        </tr>
 
-<table class="table table-striped">
-    <tr>
-        <th scope="row">Armour class</th>
-        <td>{{ monster.ac }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Level</th>
-        <td>{{ monster.level }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Attacks</th>
-        <td>{{ monster.attacks }}</td>
-    </tr>
-
-    <tr>
-        <th scope="row">Movement</th>
-        <td>{{ monster.movement }}</td>
-    </tr>
-
-    <tr>
-        <th scope="row">Morale</th>
-        <td>{{ monster.morale }}</td>
-    </tr>
+        <tr>
+            <th>Attacks</th>
+            <th>Morale</th>
+            <th>Number Appearing</th>
+        </tr>
+        <tr>
+            <td>{{ monster.attacks }}</td>
+            <td>{{ monster.morale }}</td>
+            <td>{{ monster.number_appearing }}</td>
+        </tr>
+    </table>
 
 
-    <tr>
-        <th scope="row">Number appearing</th>
-        <td>{{ monster.number_appearing }}</td>
-    </tr>
+   {% if monster.extra_info %}<p class="card-text">{{ monster.extra_info|safe }}</p>{% endif %}
+    <a href="{% url 'monsters:monster_list' %}" class="text-dark"><< Return to the bestiary</a>
+  </div>
 
-</table>
-
-{% if monster.extra_info != 'None' %}
-
-<p>{{ monster.extra_info|safe }}</p>
-
-{% endif %}
 
 
 {% endblock %}

@@ -6,18 +6,26 @@ Knave Bestiary
 
 <h1>Monsters</h1>
 
-<br>
 <div class="row">
 {% for monster in monster_list %}
 <div class="card m-2" style="width: 18rem;">
   {% if monster.img_url %}<img class="card-img-top" src="{{ monster.img_url }}" alt="Card image cap">{% endif %}
   <div class="card-body">
-    <h5 class="card-title"><a href="{% url 'monsters:detail' monster.pk %}">{{ monster.name|title }}</a></h5>
-    <p class="card-text"><b>LVL: </b>{{ monster.level }}</p>
-    <p class="card-text"><b>HP: </b>{{ monster.hp }}</p>
-   {% if monster.ac %}<p class="card-text"><b>AC: </b>{{ monster.ac }}</p>{% endif %}
+    <h5 class="card-title">{{ monster.name|title }}</h5>
+        <table class="table">
+        <tr>
+            <th scope="col">LVL</th>
+            <th scope="col">HP</th>
+            <th scope="col">AC</th>
+        </tr>
+        <tr>
+    <td>{{ monster.level }}</td>
+    <td>{{ monster.hp }}</td>
+    <td>{{ monster.ac }}</td>
+        </tr>
+    </table>
 
-    <a href="{% url 'monsters:detail' monster.pk %}" class="btn btn-primary">Details</a>
+    <a href="{% url 'monsters:detail' monster.pk %}" class="text-dark">>> Details</a>
   </div>
 </div>
 {% endfor %}
