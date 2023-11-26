@@ -8,7 +8,7 @@ from game_logic.tables.delve_hazards import delve_hazards_table
 from game_logic.tables.weather import weather_roll_table_dict
 from game_logic.characters import Character
 from game_logic.roll import roll
-from .forms import CharacterCreationForm
+from .forms import CharacterCreationForm, LevelUpForm
 from game_logic.spells import SPELLS
 from game_logic.tables._master_table import _master_table
 from game_logic.tables.inn_names import inn_name_1, inn_name_2
@@ -24,21 +24,21 @@ from game_logic.tables.symbols import symbols
 
 # Create your views here.
 
+ATTRS = ("STR", "DEX", "CON", "WIS", "INT", "CHA")
+
 
 def create_player_character(request):
     character = Character()
-    attrs = ("STR", "DEX", "CON", "WIS", "INT", "CHA")
 
     request.session["saved_char"] = character.spit_attributes()
     return render(
         request,
         template_name="generators/character.html",
-        context={"char": character, "attrs": attrs},
+        context={"char": character, "form": LevelUpForm()},
     )
 
 
 def create_custom_player_character(request):
-    attrs = ("STR", "DEX", "CON", "WIS", "INT", "CHA")
     if request.method == "POST":
         form = CharacterCreationForm(request.POST)
         if form.is_valid():
@@ -48,29 +48,33 @@ def create_custom_player_character(request):
             return render(
                 request,
                 template_name="generators/character.html",
-                context={"char": character, "attrs": attrs},
+                context={"char": character, "form": LevelUpForm()},
             )
     form = CharacterCreationForm()
     template_name = "generators/create_custom_character.html"
-    context = {"form": form, "attrs": attrs}
+    context = {"form": form}
     return render(request, template_name, context)
 
 
-def level_up_character(request, attr):
+def level_up_character(request):
+    form = LevelUpForm(request.POST or None)
     saved_attrs = request.session.get("saved_char")
-    max_level_reached = sum(saved_attrs[:6]) == 10
+
     character = Character(*saved_attrs)
-    if character:
-        character.level_up(attr)
-        attrs = ("STR", "DEX", "CON", "WIS", "INT", "CHA")
+    max_level_reached = character.level == 10
+
+    if form.is_valid() and sum(form.cleaned_data.values()) == 3 and character:
+        attrs = [attr for attr in ATTRS if form.cleaned_data.get(attr)]
+        character.level_up(attrs)
         request.session["saved_char"] = character.spit_attributes()
+        form = LevelUpForm()  # reset the form
 
     return render(
         request,
         template_name="generators/character.html",
         context={
+            "form": form,
             "char": character,
-            "attrs": attrs,
             "max_level_reached": max_level_reached,
         },
     )

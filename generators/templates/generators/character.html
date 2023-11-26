@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% load crispy_forms_tags %}
 {% block title %}
 Knave Character
 {% endblock %}
@@ -60,9 +60,22 @@ Knave Character
         {% if max_level_reached %}
         <p>Max level reached</p>
         {% else %}
-        {% for attr in attrs %}
-            <a href="{% url 'generators:level-up' attr %}" class="card-link">+1 {{attr}}</a>
-        {% endfor %}
+         <details>
+            <summary>Select 3 ability scores to raise by 1</summary>
+
+        <form action="{% url 'generators:level-up' %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-warning btn-lg" type="submit">Level Up</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+</details>
         {% endif %}
   </div>
 </div>

@@ -12,7 +12,7 @@ urlpatterns = [
         name="custom-player-character",
     ),
     path(
-        "player-character/level-up/<str:attr>",
+        "player-character/level-up",
         views.level_up_character,
         name="level-up",
     ),

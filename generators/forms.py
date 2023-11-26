@@ -14,3 +14,12 @@ class CharacterCreationForm(forms.Form):
     career_choices = sorted([(name, name) for name in CAREERS.keys()])
     career1 = forms.ChoiceField(choices=career_choices)
     career2 = forms.ChoiceField(choices=career_choices)
+
+
+class LevelUpForm(forms.Form):
+    STR = forms.BooleanField(label="Raise STR", required=False)
+    DEX = forms.BooleanField(label="Raise DEX", required=False)
+    CON = forms.BooleanField(label="Raise CON", required=False)
+    WIS = forms.BooleanField(label="Raise WIS", required=False)
+    INT = forms.BooleanField(label="Raise INT", required=False)
+    CHA = forms.BooleanField(label="Raise CHA", required=False)
