@@ -29,6 +29,7 @@ class Character:
         level=1,
         career1=None,
         career2=None,
+        inventory=None,
     ):
         attributes = [int(STR), int(DEX), int(CON), int(INT), int(WIS), int(CHA)]
         if sum(attributes) == 0:
@@ -51,11 +52,14 @@ class Character:
             self.careers = random.sample(sorted(CAREERS), 2)
         else:
             self.careers = [career1, career2]
-        self.inventory = CAREERS.get(self.careers[0]) + CAREERS.get(self.careers[1])
-        spells = random.sample(sorted(SPELLS), self.INT)
-        spells = [f"Spellbook: {spell}" for spell in spells]
-        if spells:
-            self.inventory.extend(spells)
+        if not inventory:
+            self.inventory = CAREERS.get(self.careers[0]) + CAREERS.get(self.careers[1])
+            spells = random.sample(sorted(SPELLS), self.INT)
+            spells = [f"Spellbook: {spell}" for spell in spells]
+            if spells:
+                self.inventory.extend(spells)
+        else:
+            self.inventory = inventory
 
     def set_name(self, first_name, last_name):
         if first_name and last_name:
@@ -80,13 +84,12 @@ class Character:
         else:
             self.max_HP += 1
 
-    def level_up(self, attr):
-        if attr not in dir(self):
-            raise ValueError(f"Invalid attribute {attr}.")
-        current_value = getattr(self, attr)
-        if current_value == 10:
-            raise ValueError(f"{attr} already at 10.")
-        setattr(self, attr, current_value + 1)
+    def level_up(self, attrs):
+        for attr in attrs:
+            current_value = getattr(self, attr)
+            if current_value == 10:
+                raise ValueError(f"{attr} already at 10.")
+            setattr(self, attr, current_value + 1)
 
         self.level += 1
         self.update_secondary_stats()
@@ -109,4 +112,5 @@ class Character:
             self.level,
             self.careers[0],
             self.careers[1],
+            self.inventory,
         )
