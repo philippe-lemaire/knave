@@ -3,8 +3,8 @@ from game_logic.careers import CAREERS
 
 
 class CharacterCreationForm(forms.Form):
-    first_name = forms.CharField(max_length=200, initial="", empty_value="")
-    last_name = forms.CharField(max_length=200, initial="", empty_value="")
+    first_name = forms.CharField(max_length=200, required=False)
+    last_name = forms.CharField(max_length=200, required=False)
     STR = forms.IntegerField(min_value=0, max_value=3, initial=0)
     DEX = forms.IntegerField(min_value=0, max_value=3, initial=0)
     CON = forms.IntegerField(min_value=0, max_value=3, initial=0)
