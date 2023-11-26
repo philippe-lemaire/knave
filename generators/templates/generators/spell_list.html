@@ -1,9 +1,10 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% load static %}
 {% block title %}
 Knave - Spell List
 {% endblock %}
 {% block content %}
 <h1>Spell List</h1>
+<img src="{% static 'generators/spells.png' %}" class="img-fluid" alt"spells being casted in battle"/>
 
 <h2 class="mt-4">One random spell out of a hat</h2>
 

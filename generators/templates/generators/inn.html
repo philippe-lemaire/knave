@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
 Knave Inn Generator
 {% endblock %}
@@ -7,9 +7,11 @@ Knave Inn Generator
 {% block content %}
 
 <h1>{{number}} Random Inns</h1>
+
+<img src="{% static 'generators/inn.png' %}" class="img-fluid" alt"Characters in an inn."/>
 <div class="row">
 {% for inn in inns%}
-    <div class="card m-2" style="width: 30rem;">
+    <div class="card m-2" style="width: 18rem;">
     <h5 class="card-header">The {{inn.name}}</h5>
     <div class="card-body">
         <p class="card-text">On the menu today: {{inn.food}}.</p>
