@@ -5,16 +5,12 @@ Knave - Tables List
 {% block content %}
 <h1>Random Tables List</h1>
 
-<div class="row">
+<ul>
 {% for table in tables_list %}
-    <div class="card m-2" style="width: 14rem;">
-        <div class="card-body">
-
-            <a class="btn btn-secondary" href="{% url 'generators:get-table' table %}">{{table}}</a>
-
-        </div>
-    </div>
-    {% endfor %}
-</div>
+<li>
+<a href="{% url 'generators:get-table' table %}">{{table}}</a>
+</li>
+{% endfor %}
+</ul>
 
 {% endblock %}
