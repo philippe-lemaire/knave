@@ -212,6 +212,8 @@ class EncountersRulesView(TemplateView):
         context["rolled_activity"] = choice(activities)
         context["reactions_table"] = _master_table.get("reactions")
         context["rolled_reaction"] = roll("2d6")
+        context["distance_limited_visibility"] = roll("2d6") * 3
+        context["distance_large_caverns"] = roll("4d6") * 9
         return context
 
 
